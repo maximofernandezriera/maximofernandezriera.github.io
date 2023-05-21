@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/base16/zenburn.css" />
+
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template"># ¿Qué es Docker?
+
+- **Docker** es una plataforma que facilita el desarrollo, despliegue y ejecución de aplicaciones.
+- Permite **separar las aplicaciones de la infraestructura**, incrementando la eficiencia y comodidad en el trabajo.
+- Docker permite **empaquetar y ejecutar aplicaciones en un entorno aislado**, llamado contenedor.
+</script></section><section data-markdown><script type="text/template">
+# ¿Qué es Docker?
+
+- Los contenedores se ejecutan **directamente sobre el kernel de la máquina**, lo que los hace más ligeros que las máquinas virtuales.
+- Esto permite **ejecutar un mayor número de contenedores en el mismo equipo**.
+- Facilita la **realización de pruebas rápidas** de la aplicación en múltiples entornos.
+</script></section><section data-markdown><script type="text/template">
+# ¿Qué es Docker?
+
+- Comparado con las máquinas virtuales, Docker **reduce el tiempo de carga y el espacio requerido**.
+- El resultado es un **desarrollo más rápido y cómodo**.
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Una comparación adecuada
+
+- Los contenedores son un símil de la problemática existentes en la gestión de mercancías en el pasado.
+- Cada transportista manejaba sus propios tipos de contendores o embalajes (cajas, cestas, bolsas), lo que suponía un grave problema de logística.
+- Se decidió adaptar un formato estándar de contenedor para evitar estos problemas.
+</script></section><section data-markdown><script type="text/template">
+# Una comparación adecuada
+
+- Este tipo de estandarización en el modo de trabajar suspuso un enorme ahorro de coste y energía.
+- Este tipo de estandarización en el lugar de trabajo (entorno de trabajo) suspuso un enorme ahorro de coste y energía.
+</script></section><section data-markdown><script type="text/template">
+![Captura de pantalla de 2023-05-20 10-59-46](https://github.com/maximofernandezriera/curso-docker/assets/43608040/4b052b43-ecc4-40d8-a49f-10a3fd911831)
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Contenedores
+
+- Los **contenedores** se diferencian de las máquinas virtuales en que no emulan un ordenador físico ni instalan un sistema operativo completo.
+- En cambio, los contenedores utilizan el **kernel del sistema operativo anfitrión** pero contienen las capas superiores (sistema de ficheros, utilidades, aplicaciones).
+</script></section><section data-markdown><script type="text/template">
+# Contenedores
+
+- Al evitar la emulación del hardware y el sistema operativo completo, los contenedores son **más pequeños y rápidos** que las máquinas virtuales.
+- A pesar de ello, al incluir el resto de capas de software, los contenedores logran el **aislamiento e independencia** entre ellos, una característica deseable que se busca con las máquinas virtuales.
+</script></section><section data-markdown><script type="text/template">
+![Captura de pantalla de 2023-05-20 11-10-01](https://github.com/maximofernandezriera/curso-docker/assets/43608040/396ba7b8-c28d-4cf1-a586-43e55c36f0ce)
+</script></section><section data-markdown><script type="text/template">
+# Contenedores
+
+- **Docker** no es una plataforma de virtualización, por lo que no incluye un hipervisor. Los procesos dentro de un contenedor Docker se ejecutan en el mismo kernel que la máquina anfitrión.
+- Docker es capaz de aislar los procesos del contenedor del resto del sistema, ya sean procesos de la máquina anfitrión o de otros contenedores.
+</script></section><section data-markdown><script type="text/template">
+# Contenedores
+
+- Podemos **controlar los recursos** asignados a los contenedores, como la CPU y la memoria.
+- Internamente, un contenedor no tiene consciencia de que lo es, y funciona como una distribución **GNU/Linux independiente**, sin la penalización de rendimiento de los sistemas virtualizados.
+</script></section><section data-markdown><script type="text/template">
+# Contenedores
+
+- Al ejecutar un contenedor, estás ejecutando un servicio en una distribución construida a partir de una "receta", lo que garantiza la consistencia del sistema, independientemente del sistema operativo base (Ubuntu, Fedora, etc.).
+- Esto asegura el desarrollo o despliegue de una aplicación con la **misma versión de todas las dependencias**, sin importar el entorno.
+</script></section><section data-markdown><script type="text/template">
+![Captura de pantalla de 2023-05-13 16-41-28](https://github.com/maximofernandezriera/curso-docker/assets/43608040/1eaf155f-bd7b-4c42-af96-3ff3f6ed51f0)
+</script></section><section data-markdown><script type="text/template">
+# Contenedores
+
+- Algo importante: los contenedores están pensados como objetos de "usar y tirar", es decir, para ser creados, destruidos y creados de nuevo tantas veces como sea necesario y en la cantidad que sea necesaria.
+</script></section><section data-markdown><script type="text/template">
+![Captura de pantalla de 2023-05-20 11-15-09](https://github.com/maximofernandezriera/curso-docker/assets/43608040/4cf84611-9afe-463e-a7e2-564eff17f50b)
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Imágenes
+
+- Una **Imagen** es una plantilla de solo lectura que contiene las instrucciones para crear un contenedor Docker.
+- Las imágenes pueden estar **basadas en otras imágenes**, usando ficheros para definirlas.
+- Un ejemplo de imagen podría ser un sistema operativo **Ubuntu con un servidor Apache** y nuestra aplicación web instalada.
+</script></section><section data-markdown><script type="text/template">
+![Captura de pantalla de 2023-05-13 14-17-13](https://github.com/maximofernandezriera/curso-docker/assets/43608040/1d0d89f5-d7ad-493b-8a0a-1357c4f8e858)
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Imágenes y contenedores
+
+- Un **contenedor** es una instancia ejecutable de una imagen.
+- Esta instancia puede ser **creada, iniciada, detenida, movida o eliminada** a través del cliente de Docker o de la API.
+</script></section><section data-markdown><script type="text/template">
+# Imágenes y contenedores
+
+- Se puede controlar el nivel de **aislamiento del contenedor** del sistema anfitrión y del resto de contenedores.
+- El contenedor está definido tanto por la imagen de la que procede como de las opciones de configuración que permita.
+</script></section><section data-markdown><script type="text/template">
+# Imágenes y contenedores
+
+- Las instancias de contenedores pueden ser conectadas a una o más redes, sistemas de almacenamiento, o incluso se puede crear una imagen a partir del estado de un contenedor.
+</script></section><section data-markdown><script type="text/template"># Imágenes y contenedores
+
+- Por ejemplo, la imagen oficial de **MariaDb permite configurar** a través sus opciones: la contraseña del administrador, de la primera base de datos que se cree, sus usuarios, etc.
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Dockerfile
+
+- Un **Dockerfile** es un archivo de texto plano que contiene una serie de instrucciones necesarias para crear una imagen.
+- Esta imagen luego se convertirá en los contenedores que ejecutamos en el sistema.
+- El Dockerfile actúa como la **"receta" para definir la imagen**, que posteriormente lanzaremos como contenedor.
+</script></section><section data-markdown><script type="text/template">
+![2](https://github.com/maximofernandezriera/curso-docker/assets/43608040/675c4411-e628-4850-aa9c-2071482176e6)
+</script></section></section><section ><section data-markdown><script type="text/template">
+# En resumen
+</script></section><section data-markdown><script type="text/template">
+![Captura de pantalla de 2023-05-14 21-00-29](https://github.com/maximofernandezriera/curso-docker/assets/43608040/f7f281fb-3099-4a77-983b-bebc9dc5d930)
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Instalar Docker
+
+-  Debido a que, dependiendo del sistema operativo, la forma de instalarlo difiere, es mejor consultar la **documentación oficial** para saber como instalar Docker en tu máquina: https://docs.docker.com/get-docker/
+</script></section><section data-markdown><script type="text/template">
+# Instalar Docker en Linux
+
+- Pero hay algunas maneras de hacer el proceso más sencillo.
+
+- Por ejemplo, en casi cualquier distribución de Linux, podemos lanzar el siguiente script **get-docker.sh** oficial de https://get.docker.com cuya documentación se encuentra en: https://github.com/docker/docker-install
+</script></section><section data-markdown><script type="text/template">
+# Sin usuario privilegiado
+
+- Vamos a matizar algunas cosas: deberíamos instalar docker sin ser un usuario privilegiado, por ejemplo con:
+
+        curl -fsSL https://get.docker.com/rootless | sh
+
+- Y así nos ahorraríamos este paso: https://docs.docker.com/engine/security/rootless/
+</script></section><section data-markdown><script type="text/template">
+# Instalar Docker
+
+- Efectivamente, en realidad, únicamente estamos instalando el demonio y el cliente de docker y necesataríamos algunas herramientas más que nos permiten, por ejemplo, utilizar Docker Compose.
+
+- La instalación y su uso está pensado bajo línea de comandos pero que no cunda el pánico.
+</script></section><section data-markdown><script type="text/template">
+# Docker Desktop 
+
+- Es un entorno gráfico para trabajar con Docker.
+
+- Esta pensado para trabajar el local, no está pensado para los entornos de producción.
+
+- Desde que Docker Desktop está para todos los sistemas operativos, hace únicamente unos meses, se ha simplificado muchísimo la instlación. De todos modos, debemos tener en cuenta algunos puntos clave.
+</script></section><section data-markdown><script type="text/template">
+# Docker Desktop para Linux
+
+- Debido a las numerosas distribuciones Docker Desktop funciona sobre una máquina virtual, lo que penaliza el consumo de recursos.
+
+- La instalación es fácil y no tenemos que instalar el resto de componentes manualmente.
+
+- [Aquí la documentación oficial.](https://docs.docker.com/desktop/install/linux-install)
+</script></section><section data-markdown><script type="text/template">
+# Docker Desktop para Windows
+
+- El modo más utilizado necesita del Subsistema de Windows para Linux (WSL 2). Durante la instalación gráfica podemos elegirlo.
+- Necesitamos tener activada la virtualización y alguna de las versiones o Home o Pro de Windows.
+- [Aquí la documentación oficial.](https://docs.docker.com/desktop/install/windows-install/)
+</script></section><section data-markdown><script type="text/template">
+# Docker Desktop para Mac
+
+- Disponemos de lo mejor de ambos mundos y la instalación es más sencilla que en Linux o Windows.
+- Tened en cuenta los temas relacionados con el [chip](https://docs.docker.com/desktop/install/mac-install/)  los [permisos.](https://docs.docker.com/desktop/install/mac-install/)
+- [Aquí la documentación oficial.](https://docs.docker.com/desktop/install/mac-install/)
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Dockerhub
+
+- **DockerHub** es el registro de imágenes donde podemos subir nuestras propias imágenes o encontrar imágenes preexistentes para trabajar con ellas.
+- DockerHub puede ser usado de manera similar a GitHub, y podemos registrarnos en el servicio para almacenar nuestras imágenes.
+</script></section><section data-markdown><script type="text/template">
+![hub](https://github.com/maximofernandezriera/curso-docker/assets/43608040/9ae3e940-8618-4d86-846b-b80da6e488bb)
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Hola mundo en Docker
+
+        docker run hello-world
+
+- Si conseguimos que ese mensaje se muestre significa que todo está correctamente instalado y que todo funciona como debería.
+</script></section><section data-markdown><script type="text/template">
+# Hola mundo en Docker
+
+- Además de este hello-world hay alguno usuarios de la comunidad que han elaborado otras imágenes cuyo objetivo es el mismo, comprobar que todo está correcto, pero que muestran una apariencia más visualmente atractiva.
+</script></section><section data-markdown><script type="text/template">
+# Hola mundo en Docker
+
+        docker run docker/whalesay cowsay Hola Toni Serna
+
+        docker run -it --rm danielkraic/asciiquarium
+
+¿Notáis alguna diferencia de comportamiento?
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+### Comandos Docker
+
+* La mejor manera de aprender los comandos es mediante su uso. Así que lo haremos de ese modo.
+* En mi repositorio os he dejado las mejores **chuletas** que he encontrado.
+Esta es de Red Hat: [Red Hat Developer](https://developers.redhat.com/download-manager/file/Docker_Cheat_Sheet)
+* Vamos a pegarle un vistazo a los comandos y luego profundizaremos con el hello-world.
+</script></section><section data-markdown><script type="text/template">
+### Comandos Docker
+
+* Para ver los comandos disponibles (en general y en particular):
+
+        docker
+        docker image
+        docker network
+</script></section><section data-markdown><script type="text/template">
+* Para ver las opciones de cada comando:
+        docker cp - -help
+</script></section><section data-markdown><script type="text/template">
+* Los comandos tienen a su vez opciones. Los nombres de las opciones van precedidas de los caracteres - - y entre la opción y su valor se puede escribir un espacio o el carácter =.
+
+        docker COMANDO - -OPCIÓN=VALOR
+        docker COMANDO - -OPCIÓN VALOR
+</script></section></section><section  data-markdown><script type="text/template">
+* Si el valor de una opción contiene espacios, escriba el valor entre comillas
+
+        docker COMANDO - -OPCIÓN "VALOR CON ESPACIOS"
+</script></section><section ><section data-markdown><script type="text/template">
+
+### Comandos con imágenes
+
+* Para gestionar las imágenes, se utiliza el comando:
+        
+        docker image OPCIONES
+</script></section><section data-markdown><script type="text/template">
+* Para descargar una imagen:
+        docker image pull REPOSITORIO
+        docker pull REPOSITORIO
+</script></section><section data-markdown><script type="text/template">
+* Para ver las imágenes ya descargadas:
+        docker image ls
+        docker images
+</script></section></section><section ><section data-markdown><script type="text/template">
+* Para borrar una imagen (se deben borrar previamente los contenedores basados en esa imagen):
+
+       docker image rm IMAGEN
+       docker rmi IMAGEN
+</script></section><section data-markdown><script type="text/template">
+### Comandos con contenedores
+
+* Para crear un contenedor (y ponerlo en marcha):
+
+       docker run - -name=CONTENEDOR REPOSITORIO
+
+El problema de este comando es que dejamos de tener acceso a la shell y sólo se puede parar el proceso desde otro terminal.
+</script></section><section data-markdown><script type="text/template">
+Lo primero que hace es bajarse la imagen si no está en el sistema Lo habitual es poner en  archa el contenedor en modo separado o segundo plano (detached), es decir, en segundo plano, y así podemos seguir utilizando la shell:
+
+       docker run - d - -name=CONTENEDOR REPOSITORIO
+</script></section><section data-markdown><script type="text/template">
+* Si queremos ver la secuencia de arranque del contenedor, podemos poner en marcha el  contenedor en modo pseudo-tty, que trabaja en primer plano, pero del que podemos salir con Ctrl+C.
+        docker run - t - -name=CONTENEDOR REPOSITORIO
+</script></section><section data-markdown><script type="text/template">
+* Y ahora interacturaremos con el stdin.
+
+        docker run - it - -name=CONTENEDOR REPOSITORIO
+</script></section><section data-markdown><script type="text/template">
+## Vamos con un ejercicio para entenderlo
+
+Una de las cosas en las que me atasqué un poco cuando empecé a trabajar con docker fue el hecho de que "a veces" me encontraba con que los contenedores se paraban y ya no podía acceder a ellos ni iniciarlos de nuevo (con docker start). Al principio no sabía el porqué y además me desconcertaba el hecho de que me pasaba con algunos contenedores y con otros no.
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 1
+
+Ejecuta el contenedor en segundo plano:
+
+        docker run -d --name my-web-container -p 8080:80 nginx
+
+Pues poca cosa podemos hacer.
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 1
+
+Ahora accede al shell del contenedor:
+
+        docker exec -it my-web-container /bin/bash
+
+Esto te permite acceder a un shell dentro del contenedor. Ahora estás dentro del contenedor y puedes ejecutar comandos en su entorno.
+</script></section><section data-markdown><script type="text/template">
+Realiza modificaciones dentro del contenedor:
+
+echo "Hola desde Marratxí" > /usr/share/nginx/html/index.html
+Con este comando, se cambia el contenido del archivo index.html dentro del contenedor.
+</script></section><section data-markdown><script type="text/template">
+Sal del shell del contenedor:
+
+        exit
+</script></section><section data-markdown><script type="text/template">
+Esto te sacará del shell del contenedor y te devolverá a la terminal del host.
+
+Verifica los cambios en el navegador:
+Abre tu navegador web y visita http://localhost:8080. Verás el contenido modificado del archivo index.html reflejado en la página web por defecto de nginx.
+</script></section><section data-markdown><script type="text/template">
+
+### Más comandos con contenedores
+
+* Al crear el contenedor se pueden añadir diversas opciones:
+Para incluir el contenedor en una red privada virtual (y que se pueda comunicar con el resto de
+contenedores incluidos en esa red):
+       docker run - -name=CONTENEDOR - -net=RED REPOSITORIO
+Para que el contenedor atienda a un puerto determinado, aunque internamente atienda un puerto
+distinto:
+       docker run - -name=CONTENEDOR - p PUERTO_EXTERNO:PUERTO_INTERNO REPOSITORIO
+Para establecer variables de configuración del contenedor:
+       docker run - -name=CONTENEDOR - e VARIABLE=VALOR REPOSITORIO
+Las variables de configuración se pueden consultar en el repositorio del que obtenemos la imagen.
+
+
+### Comandos con contenedores
+
+* Para ver los contenedores en funcionamiento:
+       docker ps
+
+* Para ver los contenedores en funcionamiento o detenidos:
+       docker ps - a
+
+* Para detener un contenedor:
+       docker stop CONTENEDOR
+
+* Para detener todos los contenedores:
+       docker stop `($       docker ps - aq)`
+
+* Para borrar un contenedor:
+       docker rm CONTENEDOR
+
+* Para poner en marcha un contenedor detenido:
+       docker start CONTENEDOR
+
+
+### Comandos con contenedores
+
+* Para entrar en la shell de un contenedor:
+
+        docker exec - it CONTENEDOR /bin/bash
+
+* Para entrar en la shell del contenedor como root:
+
+        docker exec - u 0 - it CONTENEDOR /bin/bash
+
+* Para salir de la shell del contenedor:
+
+        exit
+
+* Para copiar (o mover) archivos entre el contenedor y el sistema anfitrión o viceversa:
+       docker cp CONTENEDOR:ORIGEN DESTINO
+       docker cp ORIGEN CONTENEDOR:DESTINO
+
+
+### Comandos de red
+
+* Para gestionar las redes, se utiliza el comando:
+       docker network OPCIONES
+
+* Para crear una red:
+       docker network create RED
+
+* Para ver las redes existentes:
+       docker network ls
+
+* Para ver información detallada de una red (entre ella, los contenedores incluidos y sus IP privadas):
+       docker network inspect RED
+
+* Para borrar una red:
+       docker network rm RED
+
+
+### Comandos de sistema
+
+* Para ver el espacio ocupado por las imágenes, los contenedores y los volúmenes:
+       docker system df
+
+* Para eliminar los elementos que no están en marcha:
+Contenedores:
+       docker container prune
+Imágenes:
+       docker image prune
+Volúmenes:
+       docker volume prune
+Redes:
+       docker network prune
+todo:
+       docker system prune - a
+</script></section></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
