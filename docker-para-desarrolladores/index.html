@@ -15,7 +15,59 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><section ><section data-markdown><script type="text/template"># ¿Qué es Docker?
+      <div class="slides"><section  data-markdown><script type="text/template"># Docker para desarrolladores
+</script></section><section  data-markdown><script type="text/template">
+# Os admiro :)
+</script></section><section  data-markdown><script type="text/template">
+# Así que para mí es todo un reto pero me encanta
+</script></section><section  data-markdown><script type="text/template">
+# Sobre mí
+
+- https://maximofernandez.com/
+- https://github.com/maximofernandezriera
+- https://linktr.ee/MaximoFernandez
+</script></section><section  data-markdown><script type="text/template">
+
+# Recursos del curso
+
+- Diapositivas: https://maximofernandez.com/docker-para-desarrolladores
+- PWD: https://labs.play-with-docker.com/
+- GCS: https://console.cloud.google.com/
+</script></section><section  data-markdown><script type="text/template">
+# Para esta sesión
+
+- Un cuenta de Docker Hub.
+- Una cuenta de github.
+- https://github.com/maximofernandezriera/curso-docker
+- [SSH KEY PAIR](https://docs.oracle.com/en/cloud/cloud-at-customer/occ-get-started/generate-ssh-key-pair.html)
+</script></section><section  data-markdown><script type="text/template">
+## Sesión 1
+</script></section><section  data-markdown><script type="text/template">
+# En cuanto al SSH y PWD
+
+https://github.com/play-with-docker/play-with-docker/issues/529
+
+[Mi SSH](https://gist.githubusercontent.com/maximofernandezriera/67e8f0ab59617dd826d5b360da88ee94/raw/b5800c8568751d1724eaeeb6f12d79b16fb8e905/playwithdocker)
+</script></section><section  data-markdown><script type="text/template">
+# He utilizado Docker
+
+- Sistemas informáticos
+- Entornos de desarrollo
+- Base de datos
+- Programación (DUAL Intensiva)
+- Sistemas de gestión empresarial
+- Puesta en producción segura
+</script></section><section  data-markdown><script type="text/template">
+# Utilizaré Docker
+
+- Acceso a datos
+- Despliegue de aplicaciones web
+- Implantación de aplicaciones web
+- Seguridad y alta disponibilidad
+- Administración de Sistemas Operativos
+- Y más ...
+</script></section><section ><section data-markdown><script type="text/template">
+# ¿Qué es Docker?
 
 - **Docker** es una plataforma que facilita el desarrollo, despliegue y ejecución de aplicaciones.
 - Permite **separar las aplicaciones de la infraestructura**, incrementando la eficiencia y comodidad en el trabajo.
@@ -31,6 +83,7 @@
 
 - Comparado con las máquinas virtuales, Docker **reduce el tiempo de carga y el espacio requerido**.
 - El resultado es un **desarrollo más rápido y cómodo**.
+- https://www.docker.com/
 </script></section></section><section ><section data-markdown><script type="text/template">
 # Una comparación adecuada
 
@@ -101,7 +154,8 @@
 # Imágenes y contenedores
 
 - Las instancias de contenedores pueden ser conectadas a una o más redes, sistemas de almacenamiento, o incluso se puede crear una imagen a partir del estado de un contenedor.
-</script></section><section data-markdown><script type="text/template"># Imágenes y contenedores
+</script></section><section data-markdown><script type="text/template">
+# Imágenes y contenedores
 
 - Por ejemplo, la imagen oficial de **MariaDb permite configurar** a través sus opciones: la contraseña del administrador, de la primera base de datos que se cree, sus usuarios, etc.
 </script></section></section><section ><section data-markdown><script type="text/template">
@@ -119,7 +173,11 @@
 </script></section></section><section ><section data-markdown><script type="text/template">
 # Instalar Docker
 
--  Debido a que, dependiendo del sistema operativo, la forma de instalarlo difiere, es mejor consultar la **documentación oficial** para saber como instalar Docker en tu máquina: https://docs.docker.com/get-docker/
+- Necesita un Linux.
+
+-  Debido a que, dependiendo del sistema operativo y su versión, la forma de instalarlo difiere, es mejor consultar la **documentación oficial** para saber como instalar Docker en tu máquina: https://docs.docker.com/get-docker/
+
+- Nosotros instalaremos la versión Community Edition (CE) que es de código abierto, de libre uso y distribución.
 </script></section><section data-markdown><script type="text/template">
 # Instalar Docker en Linux
 
@@ -143,7 +201,7 @@
 </script></section><section data-markdown><script type="text/template">
 # Docker Desktop 
 
-- Es un entorno gráfico para trabajar con Docker.
+- Es un **entorno gráfico***, al que le podemos agregar extensiones, para trabajar con Docker.
 
 - Esta pensado para trabajar el local, no está pensado para los entornos de producción.
 
@@ -151,7 +209,7 @@
 </script></section><section data-markdown><script type="text/template">
 # Docker Desktop para Linux
 
-- Debido a las numerosas distribuciones Docker Desktop funciona sobre una máquina virtual, lo que penaliza el consumo de recursos.
+- Debido a las numerosas distribuciones Docker Desktop funciona sobre una máquina virtual, lo que **penaliza** el consumo de recursos.
 
 - La instalación es fácil y no tenemos que instalar el resto de componentes manualmente.
 
@@ -169,6 +227,10 @@
 - Tened en cuenta los temas relacionados con el [chip](https://docs.docker.com/desktop/install/mac-install/)  los [permisos.](https://docs.docker.com/desktop/install/mac-install/)
 - [Aquí la documentación oficial.](https://docs.docker.com/desktop/install/mac-install/)
 </script></section></section><section ><section data-markdown><script type="text/template">
+# Docker para VSCODE
+
+[Market place de VS](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+</script></section><section data-markdown><script type="text/template">
 # Dockerhub
 
 - **DockerHub** es el registro de imágenes donde podemos subir nuestras propias imágenes o encontrar imágenes preexistentes para trabajar con ellas.
@@ -194,13 +256,32 @@
 
 ¿Notáis alguna diferencia de comportamiento?
 
-</script></section></section><section ><section data-markdown><script type="text/template">
+</script></section></section><section  data-markdown><script type="text/template">
 ### Comandos Docker
 
 * La mejor manera de aprender los comandos es mediante su uso. Así que lo haremos de ese modo.
 * En mi repositorio os he dejado las mejores **chuletas** que he encontrado.
 Esta es de Red Hat: [Red Hat Developer](https://developers.redhat.com/download-manager/file/Docker_Cheat_Sheet)
 * Vamos a pegarle un vistazo a los comandos y luego profundizaremos con el hello-world.
+</script></section><section ><section data-markdown><script type="text/template">
+# Sesión 2
+</script></section><section data-markdown><script type="text/template">
+# Una píldora 
+
+* Una aplicación moderna está compuesta por un lenguaje de programación, una bases de datos y sus correspondientes liberías. 
+* Docker permite a los desarrolladores empaquetar una aplicación y todos los componentes que necesita para funcionar en una caja estandarizada llamada contenedor.
+</script></section><section data-markdown><script type="text/template">
+# Repaso
+
+* Para ello utilizamos comandos, como pudimos ver en la web de play with docker pero también tenemos una GUI disponible.
+
+* Una Imagen es una plantilla que contiene las instrucciones para crear un contenedor Docker.
+</script></section><section data-markdown><script type="text/template">
+# Repaso
+
+* Hoy trabajaremos más ejemplos para entender los comandos y comenzaremos a trabajar con los Dockerfiles.
+
+* Son para definir la imagen, que posteriormente lanzaremos como contenedor
 </script></section><section data-markdown><script type="text/template">
 ### Comandos Docker
 
@@ -211,17 +292,18 @@ Esta es de Red Hat: [Red Hat Developer](https://developers.redhat.com/download-m
         docker network
 </script></section><section data-markdown><script type="text/template">
 * Para ver las opciones de cada comando:
+
         docker cp - -help
 </script></section><section data-markdown><script type="text/template">
 * Los comandos tienen a su vez opciones. Los nombres de las opciones van precedidas de los caracteres - - y entre la opción y su valor se puede escribir un espacio o el carácter =.
 
         docker COMANDO - -OPCIÓN=VALOR
         docker COMANDO - -OPCIÓN VALOR
-</script></section></section><section  data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
 * Si el valor de una opción contiene espacios, escriba el valor entre comillas
 
         docker COMANDO - -OPCIÓN "VALOR CON ESPACIOS"
-</script></section><section ><section data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
 
 ### Comandos con imágenes
 
@@ -230,17 +312,62 @@ Esta es de Red Hat: [Red Hat Developer](https://developers.redhat.com/download-m
         docker image OPCIONES
 </script></section><section data-markdown><script type="text/template">
 * Para descargar una imagen:
+
         docker image pull REPOSITORIO
         docker pull REPOSITORIO
 </script></section><section data-markdown><script type="text/template">
 * Para ver las imágenes ya descargadas:
+
         docker image ls
         docker images
-</script></section></section><section ><section data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
 * Para borrar una imagen (se deben borrar previamente los contenedores basados en esa imagen):
 
        docker image rm IMAGEN
        docker rmi IMAGEN
+</script></section><section data-markdown><script type="text/template">
+## Para, para. Mejor con un ejemplo
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 1.
+
+* Comprueba que inicialmente no hay ningún contenedor creado (la opción - a hace que se muestren también los contenedores detenidos, sin ella se muestran sólo los contenedor que estén en marcha):
+       
+        docker ps - a
+        docker container ls - a
+</script></section><section data-markdown><script type="text/template">
+* Comprueba que inicialmente tampoco disponemos de ninguna imagen:
+
+        docker image ls
+</script></section><section data-markdown><script type="text/template">
+* Ahora podríamos utilizar la extensión de VSCODE o Docker Desktop para revisar todo.
+</script></section><section data-markdown><script type="text/template">
+* Docker crea los contenedores a partir de imágenes locales (ya descargadas), pero si al crear el contenedor **no se dispone** de la imagen local, Docker descarga la imagen de su repositorio.
+</script></section><section data-markdown><script type="text/template">
+* La orden más simple para crear un contenedor es:
+
+       docker run IMAGEN
+</script></section><section data-markdown><script type="text/template">
+* Crea un contenedor con la aplicación de ejemplo hello-world. La imagen de este contenedor se llama hello-world:
+
+       docker run hello-world
+</script></section><section data-markdown><script type="text/template">
+Cada contenedor tiene un identificador (ID) y un nombre distinto. Docker "bautiza" los contenedores con un nombre peculiar, compuesto de un adjetivo y un sustantivo.
+</script></section><section data-markdown><script type="text/template">
+Podemos crear tantos contenedores como queramos a partir de una imagen. Una vez la imagen está disponible localmente, Docker no necesita descargarla y el proceso de creación del contenedor es inmediato (aunque en el caso de hello-world la descarga es rápida, con imágenes más grandes la descarga inicial puede tardar un rato)
+</script></section><section data-markdown><script type="text/template">
+Normalmente se aconseja usar siempre la opción -d, que arranca el contenedor en segundo plano (detached) y permite seguir teniendo acceso a la shell (aunque con hello-world no es estrictamente necesario porque el contenedor hello-world se detiene automáticamente tras mostrar el mensaje).
+</script></section><section data-markdown><script type="text/template">
+Al crear el contenedor hello-world con la opción -d no se muestra el mensaje, simplemente muestra el identificador completo del contenedor.
+
+</script></section><section data-markdown><script type="text/template">
+Los contenedores se pueden destruir mediante el comando rm, haciendo referencia a ellos mediante su nombre o su id. No es necesario indicar el id completo, basta con escribir los primeros caracteres (de manera que no haya ambigüedades).
+</script></section><section data-markdown><script type="text/template">
+Borra los dos contenedores existentes:
+
+       docker rm 1ae (o el nomnbre que le haya dado Docker)
+       docker rm affectionate_varahamihira (o el nomnbre que le haya dado Docker)
+</script></section><section data-markdown><script type="text/template">
+Comprueba que ya no quedan contenedores.
 </script></section><section data-markdown><script type="text/template">
 ### Comandos con contenedores
 
@@ -255,135 +382,426 @@ Lo primero que hace es bajarse la imagen si no está en el sistema Lo habitual e
        docker run - d - -name=CONTENEDOR REPOSITORIO
 </script></section><section data-markdown><script type="text/template">
 * Si queremos ver la secuencia de arranque del contenedor, podemos poner en marcha el  contenedor en modo pseudo-tty, que trabaja en primer plano, pero del que podemos salir con Ctrl+C.
+      
         docker run - t - -name=CONTENEDOR REPOSITORIO
 </script></section><section data-markdown><script type="text/template">
 * Y ahora interacturaremos con el stdin.
 
         docker run - it - -name=CONTENEDOR REPOSITORIO
 </script></section><section data-markdown><script type="text/template">
-## Vamos con un ejercicio para entenderlo
-
-Una de las cosas en las que me atasqué un poco cuando empecé a trabajar con docker fue el hecho de que "a veces" me encontraba con que los contenedores se paraban y ya no podía acceder a ellos ni iniciarlos de nuevo (con docker start). Al principio no sabía el porqué y además me desconcertaba el hecho de que me pasaba con algunos contenedores y con otros no.
-</script></section><section data-markdown><script type="text/template">
-# Ejercicio 1
-
-Ejecuta el contenedor en segundo plano:
-
-        docker run -d --name my-web-container -p 8080:80 nginx
-
-Pues poca cosa podemos hacer.
-</script></section><section data-markdown><script type="text/template">
-# Ejercicio 1
-
-Ahora accede al shell del contenedor:
-
-        docker exec -it my-web-container /bin/bash
-
-Esto te permite acceder a un shell dentro del contenedor. Ahora estás dentro del contenedor y puedes ejecutar comandos en su entorno.
-</script></section><section data-markdown><script type="text/template">
-Realiza modificaciones dentro del contenedor:
-
-echo "Hola desde Marratxí" > /usr/share/nginx/html/index.html
-Con este comando, se cambia el contenido del archivo index.html dentro del contenedor.
-</script></section><section data-markdown><script type="text/template">
-Sal del shell del contenedor:
-
-        exit
-</script></section><section data-markdown><script type="text/template">
-Esto te sacará del shell del contenedor y te devolverá a la terminal del host.
-
-Verifica los cambios en el navegador:
-Abre tu navegador web y visita http://localhost:8080. Verás el contenido modificado del archivo index.html reflejado en la página web por defecto de nginx.
-</script></section><section data-markdown><script type="text/template">
-
 ### Más comandos con contenedores
 
 * Al crear el contenedor se pueden añadir diversas opciones:
-Para incluir el contenedor en una red privada virtual (y que se pueda comunicar con el resto de
+</script></section><section data-markdown><script type="text/template">
+* Para incluir el contenedor en una red privada virtual (y que se pueda comunicar con el resto de
 contenedores incluidos en esa red):
+
        docker run - -name=CONTENEDOR - -net=RED REPOSITORIO
-Para que el contenedor atienda a un puerto determinado, aunque internamente atienda un puerto
+</script></section><section data-markdown><script type="text/template">
+* Para que el contenedor atienda a un puerto determinado, aunque internamente atienda un puerto
 distinto:
+
+
        docker run - -name=CONTENEDOR - p PUERTO_EXTERNO:PUERTO_INTERNO REPOSITORIO
-Para establecer variables de configuración del contenedor:
+</script></section><section data-markdown><script type="text/template">
+* Para establecer variables de configuración del contenedor:
+
        docker run - -name=CONTENEDOR - e VARIABLE=VALOR REPOSITORIO
-Las variables de configuración se pueden consultar en el repositorio del que obtenemos la imagen.
 
-
+* Las variables de configuración se pueden consultar en el repositorio del que obtenemos la imagen.
+</script></section><section data-markdown><script type="text/template">
 ### Comandos con contenedores
 
 * Para ver los contenedores en funcionamiento:
+
        docker ps
-
+</script></section><section data-markdown><script type="text/template">
 * Para ver los contenedores en funcionamiento o detenidos:
+
        docker ps - a
-
+</script></section><section data-markdown><script type="text/template">
 * Para detener un contenedor:
+
        docker stop CONTENEDOR
-
+</script></section><section data-markdown><script type="text/template">
 * Para detener todos los contenedores:
-       docker stop `($       docker ps - aq)`
 
+       docker stop `($docker ps - aq)`
+</script></section><section data-markdown><script type="text/template">
 * Para borrar un contenedor:
+
        docker rm CONTENEDOR
-
+</script></section><section data-markdown><script type="text/template">
 * Para poner en marcha un contenedor detenido:
-       docker start CONTENEDOR
 
+       docker start CONTENEDOR
+</script></section><section data-markdown><script type="text/template">
 
 ### Comandos con contenedores
 
 * Para entrar en la shell de un contenedor:
 
         docker exec - it CONTENEDOR /bin/bash
-
+</script></section><section data-markdown><script type="text/template">
 * Para entrar en la shell del contenedor como root:
 
         docker exec - u 0 - it CONTENEDOR /bin/bash
-
+</script></section><section data-markdown><script type="text/template">
 * Para salir de la shell del contenedor:
 
         exit
-
+</script></section><section data-markdown><script type="text/template">
 * Para copiar (o mover) archivos entre el contenedor y el sistema anfitrión o viceversa:
+
        docker cp CONTENEDOR:ORIGEN DESTINO
        docker cp ORIGEN CONTENEDOR:DESTINO
-
-
+</script></section><section data-markdown><script type="text/template">
 ### Comandos de red
 
 * Para gestionar las redes, se utiliza el comando:
+
        docker network OPCIONES
-
+</script></section><section data-markdown><script type="text/template">
 * Para crear una red:
+
        docker network create RED
-
+</script></section><section data-markdown><script type="text/template">
 * Para ver las redes existentes:
+
        docker network ls
-
+</script></section><section data-markdown><script type="text/template">
 * Para ver información detallada de una red (entre ella, los contenedores incluidos y sus IP privadas):
+
        docker network inspect RED
-
+</script></section><section data-markdown><script type="text/template">
 * Para borrar una red:
+
        docker network rm RED
-
-
+</script></section><section data-markdown><script type="text/template">
 ### Comandos de sistema
 
 * Para ver el espacio ocupado por las imágenes, los contenedores y los volúmenes:
+
        docker system df
+</script></section><section data-markdown><script type="text/template">
+* Esto también podemos hacerlo desde Docker Desktop.
+</script></section><section data-markdown><script type="text/template">
 
 * Para eliminar los elementos que no están en marcha:
+</script></section><section data-markdown><script type="text/template">
 Contenedores:
+
        docker container prune
+
 Imágenes:
+
        docker image prune
+</script></section><section data-markdown><script type="text/template">
 Volúmenes:
+
        docker volume prune
+
 Redes:
+
        docker network prune
-todo:
+</script></section><section data-markdown><script type="text/template">       
+Todo:
+       
        docker system prune - a
+</script></section><section data-markdown><script type="text/template">
+## Vamos con otro ejercicio para terminar de entenderlo
+</script></section><section data-markdown><script type="text/template">
+Una de las cosas en las que me atasqué un poco cuando empecé a trabajar con docker fue el hecho de que "a veces" me encontraba con que los contenedores se paraban y ya no podía acceder a ellos ni iniciarlos de nuevo (con docker start). Al principio no sabía el porqué y además me desconcertaba el hecho de que me pasaba con algunos contenedores y con otros no.
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 2
+
+[Ejercicio 2](https://gist.github.com/maximofernandezriera/1fc42ec66de9221ae65dbf0a8e1657f7#file-ejercicio1-md)
+</script></section><section data-markdown><script type="text/template">
+
+# Ejercicio 2
+
+* Ejecuta el contenedor en segundo plano:
+
+        docker run -d --name my-web -p 8080:80 nginx
+
+Pues poca cosa podemos hacer. No está mal pero no puedo interactuar, es decir, no lo puedo configurar.
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 2
+
+* Ahora accede al shell del contenedor:
+
+        docker exec -it my-web /bin/bash
+
+Esto te permite acceder a un shell dentro del contenedor. Ahora estás dentro del contenedor y puedes ejecutar comandos en su entorno.
+</script></section><section data-markdown><script type="text/template">
+# Realiza modificaciones dentro del contenedor
+</script></section><section data-markdown><script type="text/template">
+- Con este comando, se cambia el contenido del archivo index.html dentro del contenedor.
+
+       echo "Hola desde Marratxí" > /usr/share/nginx/html/index.html
+
+
+</script></section><section data-markdown><script type="text/template">
+# Salir del shell del contenedor:
+</script></section><section data-markdown><script type="text/template">
+Con el siguiente comando salimos del contenedor y vamos al host.
+
+        exit
+</script></section><section data-markdown><script type="text/template">
+# El resultado
+
+Abre tu navegador web y visita http://localhost:8080. Verás el contenido modificado del archivo index.html reflejado en la página web por defecto de nginx.
+</script></section><section data-markdown><script type="text/template">
+# Una pequeña broma con los contenedores y el exit
+</script></section><section data-markdown><script type="text/template">
+Podría salir de un terminal de plpgsql dentro del contenedor y seguidamente salir del contenedor.
+</script></section><section data-markdown><script type="text/template">
+[La peícula Origen](https://youtu.be/RV9L7ui9Cn8)
+</script></section><section data-markdown><script type="text/template">
+# En realidad va en contra de la filosofía de Docker, ya lo veremos
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 2, ¿lo hacemos juntos?
+
+Crea un contenedor que contenga un servidor Apache a partir de la imagen apache
+</script></section><section data-markdown><script type="text/template">
+* La opción -P hace que Docker asigne de forma aleatoria un puerto de la máquina virtual al puerto asignado aApache en el contenedor. La imagen apache asigna a Apache el puerto 8080 del contenedor para conexiones http y el puerto 8443 para conexiones https.
+</script></section><section data-markdown><script type="text/template">
+# Parte 1. Vamos:
+
+
+       docker run -d -P --name=apache-cursodevs apache
+
+</script></section><section data-markdown><script type="text/template">
+* Consulta el puerto del host utilizado por el contenedor
+
+       docker ps -a
+
+* Se mostrará el contenedor con el nombre que hemos indicado
+</script></section><section data-markdown><script type="text/template">
+* Abre en el navegador la página inicial del contenedor y compruebe que se muestra una página que dice "It works!".
+
+* Aquí PWD te ayuda.
+</script></section><section data-markdown><script type="text/template">
+# Empieza lo bueno. Parte 2.
+
+* Vamos a modificar la página web inicial de Apache del contenedor Docker.
+
+</script></section><section data-markdown><script type="text/template">
+* Debemos tener en cuenta que modificar el contenido de un contenedor tal y como vamos a hacer en este apartado sólo es aconsejable en un entorno de desarrollo, pero no es aconsejable en un entorno de producción porque va en contra de la "filosofía" de Docker.
+</script></section><section data-markdown><script type="text/template">
+* Los contenedores de Docker están pensados como objetos de "usar y tirar", es decir, para ser creados, destruidos y creados de nuevo tantas veces como sea necesario y en la cantidad que sea necesaria.
+</script></section><section data-markdown><script type="text/template">
+* Muy pronto realizaremos la misma tarea de una forma más conveniente, modificando no el
+contenedor sino la imagen a partir de la cual se crean los contenedores.
+</script></section><section data-markdown><script type="text/template">
+* Los contenedores de Docker están pensados como objetos de "usar y tirar", es decir, para ser creados, destruidos y creados de nuevo tantas veces como sea necesario y en la cantidad que sea necesaria.
+
+</script></section><section data-markdown><script type="text/template">
+* Realizaremos la misma tarea de una forma más conveniente, modificando no el contenedor sino la imagen a partir de la cual se crean los contenedores.
+
+</script></section><section data-markdown><script type="text/template">
+* Crea un contenedor que contenga un servidor Apache a partir de la imagenhttpd
+
+       docker run -d -P --name=apache-cursodevs httpd
+</script></section><section data-markdown><script type="text/template">
+* Consulta el puerto del host utilizado por el contenedor
+
+       docker ps -a
+
+* Se mostrarán los dos contenedores creados
+</script></section><section data-markdown><script type="text/template">
+* Crea la nueva página index.html ...
+
+code index.html
+</script></section><section data-markdown><script type="text/template">
+* He creado una mediante chatgpt
+</script></section><section data-markdown><script type="text/template">
+OJO: https://gist.github.com/maximofernandezriera/389c48ce7b9949fe927b96bc1ac17a04
+</script></section><section data-markdown><script type="text/template">
+* Entra en la shell del contenedor para averiguar la ubicación de la página inicial:
+       
+       docker exec -it apache-cursodevs /bin/bash
+</script></section><section data-markdown><script type="text/template">
+* Sabemos que es: /usr/local/apache2/htdocs
+</script></section><section data-markdown><script type="text/template">
+* Salimos de la imagen
+
+       exit
+</script></section><section data-markdown><script type="text/template">
+* Copiamos nuestra página web en esa ruta
+
+       docker cp index.html apache-cursodevs:/usr/local/apache2/htdocs
+</script></section><section data-markdown><script type="text/template">
+* Ya tienes tu paǵina ejecutada con Docker
+
+</script></section><section data-markdown><script type="text/template">
+* Vamos a intentar ahorrarnos el copiar los ficheros siempre. Probamos lo siguiente desde donde tenemos la página web:
+
+       docker run -dit --name apache-cursodevs -p 5555:80 -v "$PWD":/usr/local/apache2/htdocs httpd
+</script></section><section data-markdown><script type="text/template">
+* Una vez lanzado y puesto en marcha podemos ir a la dirección http://localhost:5555 con nuestro navegador y visitar nuestro sitio web funcionando desde el contenedor.
+</script></section><section data-markdown><script type="text/template">
+* Insisto, debemos tener en cuenta que modificar el contenido de un contenedor tal y como hemos hecho sólo es aconsejable en un entorno de desarrollo, pero no es aconsejable en un entorno de producción porque va en contra de la "filosofía" de Docker.
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 3. Hazlo mismo pero con otro servidor como nginx. Luego volvemos a él.
+</script></section><section data-markdown><script type="text/template">
+* Podríamos repetir el proceso, la única diferencia es que deberíamos tener cuidado con los directorios de uso y configuración de nginx.
+</script></section><section data-markdown><script type="text/template">
+# Y ahora, ¿cómo sería utilizando un Dockerfile?
+
+       my-web-project/
+       ├── Dockerfile
+       └── index.html
+</script></section><section data-markdown><script type="text/template">
+       FROM nginx:latest
+
+       COPY index.html /usr/share/nginx/html
+
+       EXPOSE 80
+
+       CMD ["nginx", "-g", "daemon off;"]
+</script></section><section data-markdown><script type="text/template">
+       docker run -it --name my-web-container -p 8080:80 my-web-image
+</script></section><section data-markdown><script type="text/template">
+# Dockerfile
+
+* Un Dockerfile es un archivo de texto plano que contiene una serie de instrucciones necesarias para crear una imagen que, posteriormente, se convertirá en el **patrón** de nuestros **contenedores**. Para ello le añadimos:
+</script></section><section data-markdown><script type="text/template">
+
+* **FROM:** indica la imagen base sobre la que se construirá la aplicación dentro del contenedor.
+
+       FROM <imagen>
+       FROM <imagen>:<tag>
+
+Por ejemplo la imagen puede ser un sistema operativo como Ubuntu, Centos, etc. O una imagen ya existente en la cual con base a esta queramos construir nuestra propia imagen.
+</script></section><section data-markdown><script type="text/template">
+* **RUN:** nos permite ejecutar comandos en el contenedor, por ejemplo, instalar paquetes o librerías (apt-get, yum install, etc.). Además, tenemos dos formas de colocarlo:
+</script></section><section data-markdown><script type="text/template">
+Opción 1 - > RUN <comando>
+Esta instrucción ejecuta comandos Shell en el contenedor.
+</script></section><section data-markdown><script type="text/template">
+Opción 2 - > [“ejecutable”,” parametro 1 ”,” parametro 2 ”]
+</script></section><section data-markdown><script type="text/template">
+Esta otra instrucción bastante útil, que permite ejecutar comandos en imágenes que no tengan /bin/sh.
+</script></section><section data-markdown><script type="text/template">
+Generalmente se utiliza para ejecutar comandos o preparar distintos elementos que queremos que estén a la hora de tener nuestra imagen lista: librerías, dependencias, programas.
+</script></section><section data-markdown><script type="text/template">
+* **ENV:** establece variables de entorno para nuestro contenedor, en este caso la variable de entorno es DEBIAN_FRONTEND noninteractive, el cual nos permite instalar un montón de archivos .deb sin tener que interactuar con ellos.
+
+       ENV <key><valor>
+</script></section><section data-markdown><script type="text/template">
+### Dockerfile
+
+* **ADD:** esta instrucción copia archivos a un destino especifico dentro del contenedor, normalmente nos sirve para dejar ubicados ciertos archivos que queremos mover entre directorios, podemos usar como origen una URL o un .tar y descomprimirlo.
+
+       ADD <fuente> <destino>
+       ADD ./script.sh /var/tmp/script.sh
+</script></section><section data-markdown><script type="text/template">
+* **COPY:** esta instrucción copia archivos o directorios a un destino especifico dentro del contenedor.
+
+       COPY <fuente> <destino>
+       COPY ./run.sh /var/tmp/run.sh
+
+* **LABEL** : Este nos permite, por ejemplo, indicar el nombre del autor del dockerfile.
+
+
+       LABEL <nombre>
+</script></section><section data-markdown><script type="text/template">
+* **CMD** : esta instrucción nos provee valores por defecto a nuestro contenedor, es decir, mediante esta podemos definir una serie de comandos que solo se ejecutaran una vez que el contenedor se ha inicializado, pueden ser comandos Shell con parámetros establecidos.
+
+       * CMD [“ejecutable”, “parámetro 1 ”, “parámetro 2 ”], este es el formato de ejecución.
+       * CMD [“parámetro 1 ”, “parámetro 2 ”], parámetro por defecto para punto de entrada.
+       * CMD comando parámetro 1 parámetro 2 , modo shell
+
+</script></section><section data-markdown><script type="text/template">
+
+### Dockerfile
+
+* **ENTRYPOINT:** la instrucción entrypoint define el comando y los parámetros que se ejecutan primero cuando se ejecuta el contenedor. En simples palabras, todos los comandos pasados en la instrucción docker run <image> serán agregados al comando entrypoint.
+</script></section><section data-markdown><script type="text/template">
+* Opción 1 - > la forma exec es donde especificamos comandos y argumentos, como la sintaxis de los formatos JSON.
+       ENTRYPOINT ["executable", "param 1 ", "param 2 "]
+</script></section><section data-markdown><script type="text/template">
+Opción 2 - > la otra forma es ejecutar un script para ejecutar los comandos que queremos como entrada en el contenedor.
+       COPY ./script-entrypoint.sh /
+       ENTRYPOINT ["/script-entrypoint.sh"]
+       CMD ["postgres"]
+</script></section><section data-markdown><script type="text/template">
+* **VOLUME** : esta instrucción crea un volumen como punto de montaje dentro del contenedor y es visible desde el host anfitrión marcado con otro nombre.
+
+       VOLUME /var/tmp
+</script></section><section data-markdown><script type="text/template">
+* **USER** : determina el nombre de usuario a utilizar cuando se ejecuta un contenedor, y adicionalmente cuando se ejecutan comandos como RUN, CMD, ENTRYPOINT o WORKDIR.
+
+       WORKDIR ruta/de/Proyecto
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 4
+
+Ahora vamos a revisar otro dockerfile, en el cual crearemos una imagen con base Ubuntu 22:04, por ejemplo y haremos las siguientes sub-tareas:
+</script></section><section data-markdown><script type="text/template">
+* Actualizar sus paquetes
+* Instalar el paquete Nginx
+* Añadir un archivo en una ruta especifica dentro del contenedor
+* Exponer un puerto
+</script></section><section data-markdown><script type="text/template">
+# Descarga la imagen de Ubuntu 16.04
+
+       FROM ubuntu:16.04
+</script></section><section data-markdown><script type="text/template">
+# Actualiza la imagen base de Ubuntu 16.04
+
+       RUN apt-get update
+</script></section><section data-markdown><script type="text/template">
+# Ejecuta el commando apt-get install
+</script></section><section data-markdown><script type="text/template">
+# Elimina determinados archivos y temporales
+</script></section><section data-markdown><script type="text/template">
+       RUN apt-get install -y nginx \
+       && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+</script></section><section data-markdown><script type="text/template">
+# Indica los puertos TCP/IP
+
+       EXPOSE 80
+</script></section><section data-markdown><script type="text/template">
+# Establece el commando del proceso de inicio del contenedor
+
+       CMD [“nginx”]
+</script></section><section data-markdown><script type="text/template">
+OJO: EXPOSE es una forma de documentar qué puertos deberían estar abiertos, mientras que -p o --publish realmente abre el puerto al sistema fuera del contenedor.
+</script></section><section data-markdown><script type="text/template">
+       docker build -t mi-ubuntu . (el punto es importante le dice donde esta el fichero Dockerfile, que es en este directorio)
+</script></section><section data-markdown><script type="text/template">
+       docker run -p 8080:80
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 5
+
+Vamos a crear nuestra primera imagen de apache con php, para ello usaremos el fichero Dockerfile. Lo creamos teniendo
+en cuenta: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+</script></section><section data-markdown><script type="text/template">
+* El fichero Dockerfile define una una plantilla que le dice como serán nuestros contenedores
+</script></section><section data-markdown><script type="text/template">
+# Imagen a usar (es un poco antigua)
+
+       FROM php:7.0-apache
+</script></section><section data-markdown><script type="text/template">
+# Copiamos todos los ficheros en el directorio en cuestion
+
+       COPY src/ /var/www/html
+</script></section><section data-markdown><script type="text/template">
+# Exponemos el puerto 80
+
+       EXPOSE 80
+</script></section><section data-markdown><script type="text/template">
+* Creamos la imagen con
+
+       docker build -t miapache-php . (el punto es importante le dice donde esta el fichero Dockerfile, que es en este directorio)</script></section><section data-markdown><script type="text/template">
+* Comprobamos que existe
+
+       docker images
+</script></section><section data-markdown><script type="text/template">
+* Lanzamos la imagen
+
+       docker run -dit --name miapache-php -p 5555:80 miapache-php
 </script></section></section></div>
     </div>
 
