@@ -646,34 +646,23 @@ OJO: https://gist.github.com/maximofernandezriera/389c48ce7b9949fe927b96bc1ac17a
 # Ejercicio 3. Hazlo mismo pero con otro servidor como nginx. Luego volvemos a él.
 </script></section><section data-markdown><script type="text/template">
 * Podríamos repetir el proceso, la única diferencia es que deberíamos tener cuidado con los directorios de uso y configuración de nginx.
+</script></section></section><section ><section data-markdown><script type="text/template">
+# SESIÓN 3
 </script></section><section data-markdown><script type="text/template">
-# Y ahora, ¿cómo sería utilizando un Dockerfile?
-
-       my-web-project/
-       ├── Dockerfile
-       └── index.html
-</script></section><section data-markdown><script type="text/template">
-       FROM nginx:latest
-
-       COPY index.html /usr/share/nginx/html
-
-       EXPOSE 80
-
-       CMD ["nginx", "-g", "daemon off;"]
-</script></section><section data-markdown><script type="text/template">
-       docker run -it --name my-web-container -p 8080:80 my-web-image
+* Esto ya podría aplicarlo en PROGRAMACIÓN, SISTEMAS INFORMÁTICOS, LENGUAJE DE MARCAS, ASO, SERVICIOS EN RED E INTERNET, DESPLIEGUE DE APLICACIONES WEB, etc,...
 </script></section><section data-markdown><script type="text/template">
 # Dockerfile
 
-* Un Dockerfile es un archivo de texto plano que contiene una serie de instrucciones necesarias para crear una imagen que, posteriormente, se convertirá en el **patrón** de nuestros **contenedores**. Para ello le añadimos:
+* Un Dockerfile es un archivo de texto plano que contiene una serie de instrucciones, como si fuera una receta de cocina, necesarias para crear una imagen que, posteriormente, se convertirá en el **patrón** de nuestros **contenedores**.
 </script></section><section data-markdown><script type="text/template">
 
 * **FROM:** indica la imagen base sobre la que se construirá la aplicación dentro del contenedor.
 
        FROM <imagen>
        FROM <imagen>:<tag>
-
-Por ejemplo la imagen puede ser un sistema operativo como Ubuntu, Centos, etc. O una imagen ya existente en la cual con base a esta queramos construir nuestra propia imagen.
+</script></section><section data-markdown><script type="text/template">
+* Por ejemplo la imagen puede ser un sistema operativo como Ubuntu, Fedora, Windows Nano Server. Ahora veremos un ejemplo.
+* O una imagen ya existente en la cual con base a esta queramos construir nuestra propia imagen.
 </script></section><section data-markdown><script type="text/template">
 * **RUN:** nos permite ejecutar comandos en el contenedor, por ejemplo, instalar paquetes o librerías (apt-get, yum install, etc.). Además, tenemos dos formas de colocarlo:
 </script></section><section data-markdown><script type="text/template">
@@ -686,6 +675,32 @@ Esta otra instrucción bastante útil, que permite ejecutar comandos en imágene
 </script></section><section data-markdown><script type="text/template">
 Generalmente se utiliza para ejecutar comandos o preparar distintos elementos que queremos que estén a la hora de tener nuestra imagen lista: librerías, dependencias, programas.
 </script></section><section data-markdown><script type="text/template">
+# EJERCICIO. Instalación de python en una imagen de ubuntu
+</script></section><section data-markdown><script type="text/template">
+* Vamos a ver como funcionan las instrucciones en Dockerfile.
+</script></section><section data-markdown><script type="text/template">
+# Pero antes
+</script></section><section data-markdown><script type="text/template">
+* Un vistazo a https://hub.docker.com/_/hello-world
+
+* [Las intimidades de hello-world](https://github.com/docker-library/hello-world/blob/3fb6ebca4163bf5b9cc496ac3e8f11cb1e754aee/amd64/hello-world/Dockerfile)
+
+* https://hub.docker.com/_/nginx
+</script></section><section data-markdown><script type="text/template">
+#### Dockerfile
+
+                     FROM ubuntu
+                     RUN apt-get update
+                     RUN apt-get install -y python3 python3-pip
+</script></section><section data-markdown><script type="text/template">
+# Desde la consola
+
+              docker build -t python_programacion .
+</script></section><section data-markdown><script type="text/template">
+# Desde la consola
+
+              docker run -it python_programacion python3
+</script></section><section data-markdown><script type="text/template">e
 * **ENV:** establece variables de entorno para nuestro contenedor, en este caso la variable de entorno es DEBIAN_FRONTEND noninteractive, el cual nos permite instalar un montón de archivos .deb sin tener que interactuar con ellos.
 
        ENV <key><valor>
@@ -735,24 +750,73 @@ Opción 2 - > la otra forma es ejecutar un script para ejecutar los comandos que
 
        WORKDIR ruta/de/Proyecto
 </script></section><section data-markdown><script type="text/template">
-# Ejercicio 4
+# Os dejo una lista
 
-Ahora vamos a revisar otro dockerfile, en el cual crearemos una imagen con base Ubuntu 22:04, por ejemplo y haremos las siguientes sub-tareas:
+* [Instrucciones básicas](https://github.com/maximofernandezriera/curso-docker-comandos.git)
+* [Documentación oficial](https://docs.docker.com/engine/reference/builder/)
+</script></section><section data-markdown><script type="text/template">
+
+# EJERCICIO nginx y subida a Dockerhub
+</script></section><section data-markdown><script type="text/template">
+## ¿Cómo podríamos repetir el ejercicio de la sesión anterior utilizando un Dockerfile y subirlo?
+
+       my-web-project/
+       ├── Dockerfile
+       └── index.html
+</script></section><section data-markdown><script type="text/template">
+## Necesitamos un index.html
+
+* El mío está aquí [mi index para este ejercicio](https://raw.githubusercontent.com/maximofernandezriera/curso-web-dockerfile/main/index.html)
+</script></section><section data-markdown><script type="text/template">
+Imagen de nginx
+
+       FROM nginx:latest
+</script></section><section data-markdown><script type="text/template">
+Teniendo en cuenta que:
+
+       COPY index.html /usr/share/nginx/html
+
+       EXPOSE 80
+
+       CMD ["nginx", "-g", "daemon off;"]
+</script></section><section data-markdown><script type="text/template">
+Desde la consola:
+
+              docker build -t maxfernandez/my-web-image .
+              docker run -it --name my-web-container -p 8080:80 maxfernandez/my-web-image
+</script></section><section data-markdown><script type="text/template">
+# Vamos a subirlo a Dockerhub y compartirlo entre nosotros
+</script></section><section data-markdown><script type="text/template">
+* Vamos a configurar el login con vscode
+
+       docker login
+
+      Paleta de comandos -> Docker images push
+</script></section><section data-markdown><script type="text/template">
+# EJERCICIOS. DOCKERFILES Proyecto Tomcat y PHP
+</script></section><section data-markdown><script type="text/template">
+
+* [Un ejercicio con Tomcat](https://github.com/maximofernandezriera/Dockerfiles/tree/main/tomcat)
+* [Dockerfile para una imagen de apache con PHP 7.4 que descargue el código de WordPress y lo ponga en el servidor raíz del servidor](https://github.com/maximofernandezriera/Dockerfiles/tree/main/tomcat)
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio ubuntu y nginx
+</script></section><section data-markdown><script type="text/template">
+* Ahora vamos a revisar otro dockerfile, en el cual crearemos una imagen con base Ubuntu, por ejemplo y haremos las siguientes sub-tareas:
 </script></section><section data-markdown><script type="text/template">
 * Actualizar sus paquetes
 * Instalar el paquete Nginx
 * Añadir un archivo en una ruta especifica dentro del contenedor
 * Exponer un puerto
 </script></section><section data-markdown><script type="text/template">
-# Descarga la imagen de Ubuntu 16.04
+# Descarga la imagen de Ubuntu
 
-       FROM ubuntu:16.04
+       FROM ubuntu
 </script></section><section data-markdown><script type="text/template">
-# Actualiza la imagen base de Ubuntu 16.04
+# Actualiza la imagen base de Ubuntu
 
        RUN apt-get update
 </script></section><section data-markdown><script type="text/template">
-# Ejecuta el commando apt-get install
+# Ejecuta el commando apt-get install. Podemos concaterarlos
 </script></section><section data-markdown><script type="text/template">
 # Elimina determinados archivos y temporales
 </script></section><section data-markdown><script type="text/template">
@@ -773,7 +837,7 @@ OJO: EXPOSE es una forma de documentar qué puertos deberían estar abiertos, mi
 </script></section><section data-markdown><script type="text/template">
        docker run -p 8080:80
 </script></section><section data-markdown><script type="text/template">
-# Ejercicio 5
+# Ejercicio. Una imagen php
 
 Vamos a crear nuestra primera imagen de apache con php, para ello usaremos el fichero Dockerfile. Lo creamos teniendo
 en cuenta: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
@@ -802,7 +866,41 @@ en cuenta: https://docs.docker.com/develop/develop-images/dockerfile_best-practi
 * Lanzamos la imagen
 
        docker run -dit --name miapache-php -p 5555:80 miapache-php
-</script></section></section></div>
+</script></section><section data-markdown><script type="text/template">
+# Podemos hacerlo mejor
+
+* A partir de aqui podremos parar y arrancar ese  ontenedor (o borrarlo).
+
+       docker stop
+       miapache-php
+       docker start miapache-php
+</script></section><section data-markdown><script type="text/template">
+* En este modelo de trabajo, cada ves que cambiemos el contenido de nuestra web deberemos regenerar la imágen local, podemos ( o no ) eliminar los contenedores viejos y volver a crear/correr el contenedor.
+</script></section><section data-markdown><script type="text/template">
+* Agregar contenido a la carpeta de trabajo y rearmar todo.
+
+       docker rmi-f miapache-php (borramos la imagen aunque esté siendo usada)
+       docker rm-f miapache-php (borramos el contenedor aunque se esté ejecurando)
+       docker build -t
+       miapache-php . (construimos la imagen)
+       docker run -dit --name miapache-php -p 5555:80 miapache-php (la ejecutamos)
+</script></section><section data-markdown><script type="text/template">
+* Podemos crearnos un script .sh para hacerlo todo, como run.sh
+
+       #!/bin/bash
+       docker rmi -f miapache-php
+       docker rm
+       -f miapache-php
+       docker build -t miapache-php .
+       docker run -dit --name miapache-php -p 5555:80 miapache-php
+</script></section><section data-markdown><script type="text/template">
+# Podéis encontrar el ejemplo aquí:
+
+* https://github.com/maximofernandezriera/curso-docker-ejercicio4.git
+</script></section><section data-markdown><script type="text/template">
+# Una aplicación con Flask
+
+* https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/</script></section></section></div>
     </div>
 
     <script src="./dist/reveal.js"></script>
