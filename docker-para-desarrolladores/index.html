@@ -793,12 +793,6 @@ Desde la consola:
 
       Paleta de comandos -> Docker images push
 </script></section><section data-markdown><script type="text/template">
-# EJERCICIOS. DOCKERFILES Proyecto Tomcat y PHP
-</script></section><section data-markdown><script type="text/template">
-
-* [Un ejercicio con Tomcat](https://github.com/maximofernandezriera/Dockerfiles/tree/main/tomcat)
-* [Dockerfile para una imagen de apache con PHP 7.4 que descargue el código de WordPress y lo ponga en el servidor raíz del servidor](https://github.com/maximofernandezriera/Dockerfiles/tree/main/tomcat)
-</script></section><section data-markdown><script type="text/template">
 # Ejercicio ubuntu y nginx
 </script></section><section data-markdown><script type="text/template">
 * Ahora vamos a revisar otro dockerfile, en el cual crearemos una imagen con base Ubuntu, por ejemplo y haremos las siguientes sub-tareas:
@@ -900,7 +894,70 @@ en cuenta: https://docs.docker.com/develop/develop-images/dockerfile_best-practi
 </script></section><section data-markdown><script type="text/template">
 # Una aplicación con Flask
 
-* https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/</script></section></section></div>
+* https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/
+</script></section></section><section ><section data-markdown><script type="text/template">
+# Sesión 4
+</script></section><section data-markdown><script type="text/template">
+# Ejercicio 5. DOCKERFILES. Desplegando un proyecto en  Tomcat
+</script></section><section data-markdown><script type="text/template">
+* [Un ejercicio con Tomcat](https://github.com/maximofernandezriera/Dockerfiles/tree/main/tomcat)
+</script></section><section data-markdown><script type="text/template">
+* En la sesión anterior nos quedamos aquí:
+
+       FROM tomcat
+
+       # Installing basic tools
+       RUN apt update && apt install -y nano && apt install -y  vim 
+
+       # Enable manager app, host manager app and docs apss
+       RUN mv /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
+       RUN rm -rf /usr/local/tomcat/webapps.dist
+
+       # Copying my tomcat-users.xml to the container
+       # TO-BE-DONE user password as a docker build arg
+       COPY mytomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+
+       # Context Modifying from all default apps
+       COPY mycontext.xml /usr/local/tomcat/webapps/host-manager/META-INF/context.xml
+       COPY mycontext.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml
+
+       # COPY THE APP
+       COPY Gestion_Proyectos.war /usr/local/tomcat/webapps/Gestion_Proyectos.war
+</script></section><section data-markdown><script type="text/template">
+# Vamos a repasar la sesión anterior 
+
+* Desplegaremos la app Gestión Proyectos en un Tomcat utilizando un Dockerfile
+* [Lo necesario](https://github.com/maximofernandezriera/tomcat-gestion-proyectos)
+</script></section><section data-markdown><script type="text/template">
+# Docker Compose
+
+* El cliente de Docker es engorroso para crear contenedores, así como para crear el resto de objetos y vincularlos entre sí a base de Dockerfiles.
+</script></section><section data-markdown><script type="text/template">
+* Para automatizar la creación, inicio y parada de un contenedor o un conjunto de ellos, Docker proporciona una herramienta llamada Docker Compose.
+</script></section><section data-markdown><script type="text/template">
+* Compose es una herramienta para definir y ejecutar aplicaciones multi-contenedor. Con un solo comando podremos crear e iniciar todos los servicios que necesitamos para nuestra aplicación.
+</script></section><section data-markdown><script type="text/template">
+* Los casos de uso más habituales para docker-compose son:
+
+* Entornos de desarrollo
+* Entornos de testeo automáticos (integración contínua)
+* Despliegue en host individuales
+</script></section><section data-markdown><script type="text/template">
+* Compose tiene comandos para manejar todo el ciclo de vida de nuestra aplicación:
+* Iniciar, detener y rehacer servicios.
+* Ver el estado de los servicios.
+* Visualizar los logs.
+* Ejecutar un comando en un servicio.
+</script></section><section data-markdown><script type="text/template">
+* https://docs.docker.com/compose/
+</script></section><section data-markdown><script type="text/template">
+# EJERCICIOS CON DOCKER COMPOSE
+</script></section><section data-markdown><script type="text/template">
+* https://github.com/maximofernandezriera/wordpress
+</script></section><section data-markdown><script type="text/template">
+* https://github.com/maximofernandezriera/docker-lamp
+</script></section><section data-markdown><script type="text/template">
+* https://github.com/maximofernandezriera/dockervue</script></section></section></div>
     </div>
 
     <script src="./dist/reveal.js"></script>
